@@ -1,40 +1,142 @@
+
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>AutoDoc AI</title>
+
     <style>
-        body {
-            font-family: Arial;
-            padding: 40px;
-        }
-        .container {
-            max-width: 500px;
-            margin: auto;
-            text-align: center;
-        }
-        input {
-            margin: 20px 0;
-        }
-        #response {
-            margin-top: 20px;
-            font-size: 18px;
-            color: green;
-        }
+        body { font-family: Arial, sans-serif; padding: 20px; max-width: 1000px; margin: auto; }
+        .card { border-radius:8px; padding:18px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+        #response { margin-top: 16px; white-space: normal; }
+        pre, code { background:#f6f8fa; padding:8px; border-radius:6px; display:block; }
+        button { padding:8px 14px; border-radius:6px; background:#2563eb; color:#fff; border:none; cursor:pointer; }
+        button.secondary { background:#6b7280; margin-left:8px; }
+        .flex { display:flex; gap:8px; align-items:center; }
+        /* Light mode (default) */
+:root {
+    --bg-color: #ffffff;
+    --text-color: #111111;
+    --card-bg: #f9f9f9;
+    --btn-bg: #2563eb;
+    --btn-text: #ffffff;
+    --code-bg: #f6f8fa;
+}
+
+/* Dark mode */
+.dark-theme {
+    --bg-color: #0d1117;
+    --text-color: #e6edf3;
+    --card-bg: #161b22;
+    --btn-bg: #3b82f6;
+    --btn-text: #ffffff;
+    --code-bg: #1e242c;
+}
+
+body {
+    background: var(--bg-color);
+    color: var(--text-color);
+    transition: 0.25s ease-in-out;
+}
+
+.card {
+    background: var(--card-bg) !important;
+}
+
+button {
+    background: var(--btn-bg) !important;
+    color: var(--btn-text) !important;
+}
+
+pre, code {
+    background: var(--code-bg) !important;
+    color: var(--text-color) !important;
+}
+
     </style>
+
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 </head>
 <body>
-    <div class="container">
-        <h1>AutoDoc AI</h1>
-        <p>Upload a code file to generate documentation automatically.</p>
+    <div class="card">
+        <h1 style="display:flex; justify-content:space-between; align-items:center;">
+    AutoDoc AI — Demo
+    <button id="themeToggle" onclick="toggleTheme()" style="
+        padding:6px 12px;
+        border-radius:6px;
+        border:none;
+        background:#444;
+        color:white;
+        cursor:pointer;
+    ">🌙 Dark Mode</button>
+</h1>
 
-        <input type="file" id="fileInput"><br>
+        <p>Upload a Python file to generate documentation. Preview will render below — download PDF for a professional document.</p>
 
-        <button onclick="uploadFile()">Upload</button>
+        <div class="flex">
+            <input type="file" id="fileInput" accept=".py" />
+            <button onclick="uploadFile()">Upload</button>
+            <button class="secondary" id="downloadBtn" style="display:none;" onclick="requestPdf()">Download PDF</button>
+        </div>
 
-        <div id="response"></div>
+        <div id="response" style="margin-top:20px;"></div>
     </div>
 
-    <script src="/frontend/script.js"></script>
-
+    <script src="script.js"></script>
 </body>
 </html>
+
+<!-- 
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+    <title>AutoDoc AI</title>
+    <style>
+    body {
+        font-family: Arial, sans-serif;
+        line-height: 1.6;
+        padding: 20px;
+    }
+
+    #response {
+        max-width: 800px;
+        margin: auto;
+        text-align: left;
+        white-space: normal;
+    }
+
+    pre, code {
+        background: #f4f4f4;
+        padding: 8px;
+        border-radius: 5px;
+    }
+
+    h1, h2, h3, h4 {
+        color: #333;
+    }
+</style>
+
+</head>
+<body>
+    <h1>AutoDoc AI</h1>
+    <p>Upload a code file to generate documentation automatically.</p>
+
+    <input type="file" id="fileInput">
+    <button onclick="uploadFile()">Upload</button>
+
+    <div id="response" style="white-space: pre-wrap; margin-top:20px;"></div>
+
+     Hidden download button 
+    <button id="downloadBtn" onclick="downloadPDF()" style="display:none; margin-top:15px;">
+        Download PDF
+    </button>
+
+    <script src="script.js"></script>
+</body>
+</html> -->

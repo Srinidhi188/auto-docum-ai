@@ -1,0 +1,16 @@
+digraph {
+	rankdir=LR
+	Codebase [color=lightblue shape=box style=filled]
+	imp_os [label=os shape=ellipse]
+	Codebase -> imp_os
+	imp_fastapi [label=fastapi shape=ellipse]
+	Codebase -> imp_fastapi
+	"imp_fastapi.middleware.cors" [label="fastapi.middleware.cors" shape=ellipse]
+	Codebase -> "imp_fastapi.middleware.cors"
+	imp_rag [label=rag shape=ellipse]
+	Codebase -> imp_rag
+	"imp_google.genai" [label="google.genai" shape=ellipse]
+	Codebase -> "imp_google.genai"
+	imp_dotenv [label=dotenv shape=ellipse]
+	Codebase -> imp_dotenv
+}

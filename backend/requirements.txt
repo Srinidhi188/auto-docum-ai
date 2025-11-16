@@ -1,6 +1,8 @@
 fastapi
 uvicorn
-openai
-gitpython
-python-multipart
+groq
+python-dotenv
+reportlab
+graphviz
+pydantic
 astor
