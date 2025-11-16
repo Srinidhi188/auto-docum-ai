@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AutoDoc AI</title>
+    <style>
+        body {
+            font-family: Arial;
+            padding: 40px;
+        }
+        .container {
+            max-width: 500px;
+            margin: auto;
+            text-align: center;
+        }
+        input {
+            margin: 20px 0;
+        }
+        #response {
+            margin-top: 20px;
+            font-size: 18px;
+            color: green;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>AutoDoc AI</h1>
+        <p>Upload a code file to generate documentation automatically.</p>
+
+        <input type="file" id="fileInput"><br>
+
+        <button onclick="uploadFile()">Upload</button>
+
+        <div id="response"></div>
+    </div>
+
+    <script src="/frontend/script.js"></script>
+
+</body>
+</html>
